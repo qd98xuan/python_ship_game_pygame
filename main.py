@@ -2,6 +2,7 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import random
 import sys
 import time
 import urllib.request
@@ -88,6 +89,7 @@ class Settings():
     screen_height = 400
     bg_color = (230, 230, 230)
 
+# 开启小游戏
 def runGame():
     print("开启游戏...")
     # 初始化游戏
@@ -129,9 +131,23 @@ def update_screen(screen,bg_color,android):
     android.update()
     pygame.display.flip()
 
+# 随机数
+def getRandomName():
+    file = open('names.txt','r')
+    nameList = []
+    for line in file.readlines():
+        for name in line.split(","):
+            # print(name)
+            nameList.append(name)
+    print(nameList.__getitem__(random.randint(0,nameList.__len__()-1)))
+
+
+
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # print_hi('PyCharm')
-    runGame()
-
+    # runGame()
+    getRandomName()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
